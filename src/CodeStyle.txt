@@ -1,0 +1,56 @@
+Code Style
+* Project hierarchy: FileIO <- Common <- Math <- Core <- Editor
+* One class per file. Exceptions can be made if it's a group of very closely related classes (such as the property template classes).
+* Don't use "using" in header files. In source files, it's still preferable to avoid it, but if you're using a lot of classes/functions from a particular namespace then go ahead.
+* Common constants that are instances of a class should generally be public static const members of that class; for example, CColor::skRed is a red color.
+* Avoid introducing dependencies on external libraries, especially all projects below Core.
+* Do not use Qt outside of Editor. The other projects are intended to work independently of any particular UI toolkit.
+* Use double slashes for comments 1-2 lines long. If a comment is longer than 2 lines, use a block comment.
+
+// This is a single-line comment
+
+/**
+ * This is a three-line comment
+ * It is a comment that spans three lines
+ * Blah blah blah more comment-y stuff
+ */
+
+Projects:
+* FileIO - Classes for data input/output streams (like reading and writing files). External dependencies should be kept to a minimum.
+* Common - General utility classes. External dependencies should be kept to a minimum.
+* Math - All math-related functions and classes, such as vectors and matrices. External dependencies should be kept to a minimum.
+* Core - Contains most of PWE's underlying engine. It's responsible for rendering, reading/writing files, and scene organization, among other things.
+* Editor - The editor front-end. All UI code and ALL code that relies on Qt is in Editor. This is the project that compiles into PrimeWorldEditor.exe.
+
+Include order:
+* Includes from the current folder (relative path, quotation marks)
+* Includes from the current module (absolute path, quotation marks)
+* Includes from other PWE modules (absolute path, angle brackets)
+* Includes from the standard library
+* Includes from Qt
+* Includes from other external libraries
+
+Name conventions:
+* Function names should be formatted so EveryWordIsCapitalizedLikeThis().
+* Variable names should be prefixed with lowercase letters; use as many prefixes as are applicable. If none are applicable, then names can be capitalized or written in camelcase.
+* All type names should be formatted with one capital letter as a prefix and with every word capitalized.
+* Macros should be COMPLETELY_CAPITALIZED_LIKE_THIS.
+* Namespaces should be capitalized the same way as function names. No prefix.
+
+Type Prefixes:
+* C: Class
+* S: Struct
+* E: Enum
+* T: Template/Typedef
+* I: Interface
+* W: Widget
+
+Variable Prefixes:
+* g: global
+* m: private/protected member
+* s: static
+* r: reference
+* p: pointer
+* k: const
+* i: iterator
+* e: enumerator
