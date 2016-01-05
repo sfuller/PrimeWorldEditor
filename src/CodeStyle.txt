@@ -41,6 +41,7 @@ Type Prefixes:
 * C: Class
 * S: Struct
 * E: Enum
+* F: Flags
 * T: Template/Typedef
 * I: Interface
 * W: Widget
