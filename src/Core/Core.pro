@@ -185,7 +185,8 @@ HEADERS += \
     Resource/Factory/CSectionMgrIn.h \
     Resource/Cooker/CScriptCooker.h \
     ScriptExtra/CSplinePathExtra.h \
-    Resource/Script/CLink.h
+    Resource/Script/CLink.h \
+    Resource/CMayaSpline.h
 
 # Source Files
 SOURCES += \
@@ -263,4 +264,5 @@ SOURCES += \
     Resource/Factory/CPoiToWorldLoader.cpp \
     Resource/Cooker/CPoiToWorldCooker.cpp \
     Resource/Cooker/CScriptCooker.cpp \
-    ScriptExtra/CSplinePathExtra.cpp
+    ScriptExtra/CSplinePathExtra.cpp \
+    Resource/CMayaSpline.cpp

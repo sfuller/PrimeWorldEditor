@@ -40,7 +40,8 @@ float CVector2f::SquaredMagnitude() const
 
 CVector2f CVector2f::Normalized() const
 {
-    return *this / Magnitude();
+    float SquaredMag = SquaredMagnitude();
+    return (SquaredMag == 0 ? *this : *this / sqrtf(SquaredMag));
 }
 
 float CVector2f::Dot(const CVector2f& rkOther) const
