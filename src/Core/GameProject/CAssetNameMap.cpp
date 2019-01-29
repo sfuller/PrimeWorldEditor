@@ -182,7 +182,7 @@ void CAssetNameMap::PostLoadValidate()
 
         for (auto Iter = Dupes.begin(); Iter != Dupes.end(); Iter++)
         {
-            warnf("\t%s", Iter->FullPath());
+            warnf("\t%s", *Iter->FullPath());
         }
 
         mMap.clear();

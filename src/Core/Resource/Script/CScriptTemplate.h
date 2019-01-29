@@ -52,16 +52,19 @@ public:
         ScaleEnabled, ScaleDisabled, ScaleVolume
     };
 
+    enum class EAssetType {
+        Model, AnimParams, Billboard, Collision
+    };
+
+    enum class EAssetSource {
+        Property, File
+    };
+
 private:
     struct SEditorAsset
     {
-        enum class EAssetType {
-            Model, AnimParams, Billboard, Collision
-        } AssetType;
-
-        enum class EAssetSource {
-            Property, File
-        } AssetSource;
+        EAssetType AssetType;
+        EAssetSource AssetSource;
 
         TIDString AssetLocation;
         int32 ForceNodeIndex; // Force animsets to use specific node instead of one from property

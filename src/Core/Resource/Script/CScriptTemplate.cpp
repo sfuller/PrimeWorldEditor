@@ -112,17 +112,17 @@ EGame CScriptTemplate::Game() const
 }
 
 // ************ PROPERTY FETCHING ************
-template<class PropType>
-PropType* TFetchProperty(CStructProperty* pProperties, const TIDString& rkID)
-{
-    if (rkID.IsEmpty()) return nullptr;
-    IProperty *pProp = pProperties->ChildByIDString(rkID);
-
-    if (pProp && (pProp->Type() == PropEnum))
-        return static_cast<PropType*>(pProp)->ValuePtr();
-    else
-        return nullptr;
-}
+//template<class PropType>
+//PropType* TFetchProperty(CStructProperty* pProperties, const TIDString& rkID)
+//{
+//    if (rkID.IsEmpty()) return nullptr;
+//    IProperty *pProp = pProperties->ChildByIDString(rkID);
+//
+//    if (pProp && (pProp->Type() == PropEnum))
+//        return static_cast<PropType*>(pProp)->ValuePtr();
+//    else
+//        return nullptr;
+//}
 
 EVolumeShape CScriptTemplate::VolumeShape(CScriptObject *pObj)
 {
@@ -216,11 +216,11 @@ CResource* CScriptTemplate::FindDisplayAsset(void* pPropertyData, uint32& rOutCh
 
     for (auto it = mAssets.begin(); it != mAssets.end(); it++)
     {
-        if (it->AssetType == SEditorAsset::EAssetType::Collision) continue;
+        if (it->AssetType == EAssetType::Collision) continue;
         CResource *pRes = nullptr;
 
         // File
-        if (it->AssetSource == SEditorAsset::EAssetSource::File)
+        if (it->AssetSource == EAssetSource::File)
             pRes = gpEditorStore->LoadResource(it->AssetLocation);
 
         // Property
@@ -228,7 +228,7 @@ CResource* CScriptTemplate::FindDisplayAsset(void* pPropertyData, uint32& rOutCh
         {
             IProperty* pProp = mpProperties->ChildByIDString(it->AssetLocation);
 
-            if (it->AssetType == SEditorAsset::EAssetType::AnimParams && pProp->Type() == EPropertyType::AnimationSet)
+            if (it->AssetType == EAssetType::AnimParams && pProp->Type() == EPropertyType::AnimationSet)
             {
                 CAnimationSetProperty* pAnimSet = TPropCast<CAnimationSetProperty>(pProp);
                 CAnimationParameters Params = pAnimSet->Value(pPropertyData);
@@ -255,7 +255,7 @@ CResource* CScriptTemplate::FindDisplayAsset(void* pPropertyData, uint32& rOutCh
         // If we have a valid resource, return
         if (pRes)
         {
-            rOutIsInGame = (pRes->Type() != EResourceType::Texture && it->AssetSource == SEditorAsset::EAssetSource::Property);
+            rOutIsInGame = (pRes->Type() != EResourceType::Texture && it->AssetSource == EAssetSource::Property);
             return pRes;
         }
     }
@@ -268,11 +268,11 @@ CCollisionMeshGroup* CScriptTemplate::FindCollision(void* pPropertyData)
 {
     for (auto it = mAssets.begin(); it != mAssets.end(); it++)
     {
-        if (it->AssetType != SEditorAsset::EAssetType::Collision) continue;
+        if (it->AssetType != EAssetType::Collision) continue;
         CResource *pRes = nullptr;
 
         // File
-        if (it->AssetSource == SEditorAsset::EAssetSource::File)
+        if (it->AssetSource == EAssetSource::File)
             pRes = gpResourceStore->LoadResource(it->AssetLocation);
 
         // Property

@@ -14,10 +14,16 @@
 #define UI_APPVAR_FULLNAME      "%APP_FULL_NAME%"
 #define UI_APPVAR_VERSION       "%APP_VERSION%"
 
+#define _STR(arg) #arg
+#define STR(arg) _STR(arg)
+#define STR_APP_NAME STR(APP_NAME)
+#define STR_APP_FULL_NAME STR(APP_FULL_NAME)
+#define STR_APP_VERSION STR(APP_VERSION)
+
 #define REPLACE_APPVARS(InQString) \
-    InQString.replace(UI_APPVAR_NAME, APP_NAME); \
-    InQString.replace(UI_APPVAR_FULLNAME, APP_FULL_NAME); \
-    InQString.replace(UI_APPVAR_VERSION, APP_VERSION);
+    InQString.replace(UI_APPVAR_NAME, STR_APP_NAME); \
+    InQString.replace(UI_APPVAR_FULLNAME, STR_APP_FULL_NAME); \
+    InQString.replace(UI_APPVAR_VERSION, STR_APP_VERSION);
 
 #define SET_WINDOWTITLE_APPVARS(InString) \
     { \
@@ -50,9 +56,9 @@ inline QString ToQString(const TString& rkStr)
     return QString::fromStdString(rkStr.ToStdString());
 }
 
-inline QString ToQString(const TWideString& rkStr)
+inline QString ToQString(const T16String& rkStr)
 {
-    return QString::fromStdWString(rkStr.ToStdString());
+    return QString::fromStdU16String(rkStr.ToStdString());
 }
 
 inline TString ToTString(const QString& rkStr)
@@ -60,9 +66,9 @@ inline TString ToTString(const QString& rkStr)
     return TString(rkStr.toStdString());
 }
 
-inline TWideString ToTWideString(const QString& rkStr)
+inline T16String ToTWideString(const QString& rkStr)
 {
-    return TWideString(rkStr.toStdWString());
+    return T16String(rkStr.toStdU16String());
 }
 
 // QFileDialog wrappers

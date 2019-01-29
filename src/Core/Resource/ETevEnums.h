@@ -99,6 +99,7 @@ enum class EUVAnimMode
     ConvolutedModeA     = 0x7,
     ConvolutedModeB     = 0x8,
     SimpleMode          = 0xA,
+    Unknown_0xB         = 0xB,
     NoUVAnim            = -1
 };
 

@@ -42,3 +42,10 @@ bin/PrimeWorldEditor.exe
 bin/PrimeWorldEditor-debug.exe
 build/*
 externals/*
+
+# Dew files
+.dew
+dewfile.local.json
+
+# IntelliJ/CLion files
+.idea

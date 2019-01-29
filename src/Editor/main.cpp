@@ -32,8 +32,8 @@ public:
         // Create application
         QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
         CEditorApplication App(argc, argv);
-        App.setApplicationName( APP_NAME );
-        App.setApplicationVersion( APP_VERSION );
+        App.setApplicationName( STR_APP_NAME );
+        App.setApplicationVersion( STR_APP_VERSION );
         App.setOrganizationName("Aruki");
         App.setWindowIcon(QIcon(":/icons/AppIcon.ico"));
 

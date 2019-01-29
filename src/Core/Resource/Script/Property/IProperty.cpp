@@ -9,6 +9,7 @@
 #include "Core/Resource/Script/CScriptTemplate.h"
 #include "Core/Resource/Script/NGameList.h"
 #include "Core/Resource/Script/NPropertyMap.h"
+#include <cfloat>
 
 /** IProperty */
 IProperty::IProperty(EGame Game)

@@ -1,0 +1,53 @@
+{
+    "dependencies": 
+    [
+        {
+            "name": "zlib",
+            "type": "git",
+            "url":  "https://github.com/madler/zlib",
+            "head": "master"
+        },
+        {
+            "name": "assimp",
+            "type": "git",
+            "url":  "https://github.com/assimp/assimp",
+            "head": "master"
+        },
+        {
+            "name": "nod",
+            "type": "git",
+            "url":  "https://github.com/sfuller/nod",
+            "head": "cmake"
+        },
+        {
+            "name": "CodeGen",
+            "type": "git",
+            "url":  "https://github.com/sfuller/CodeGen",
+            "head": "cmake"
+        },
+        {
+            "name": "LibCommon",
+            "type": "git",
+            "url":  "https://github.com/sfuller/LibCommon",
+            "head": "cmake"
+        },
+        {
+            "name": "lzo",
+            "type": "git",
+            "url":  "https://github.com/nemequ/lzo",
+            "head": "master"
+        },
+        {
+            "name": "lzokay",
+            "type": "git",
+            "url":  "https://github.com/sfuller/lzokay",
+            "head": "cmake"
+        },
+        {
+            "name": "tinyxml2",
+            "type": "git",
+            "url":  "https://github.com/leethomason/tinyxml2",
+            "head": "master"
+        }
+    ]
+}

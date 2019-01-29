@@ -31,6 +31,7 @@
 #include <QFontMetrics>
 #include <QMessageBox>
 #include <QSettings>
+#include <QButtonGroup>
 
 CWorldEditor::CWorldEditor(QWidget *parent)
     : INodeEditor(parent)

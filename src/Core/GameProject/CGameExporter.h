@@ -63,6 +63,7 @@ class CGameExporter
     // Progress
     IProgressNotifier *mpProgress;
 
+public:
     enum EExportStep
     {
         eES_ExtractDisc,

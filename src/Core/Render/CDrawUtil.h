@@ -4,7 +4,7 @@
 #include "Core/OpenGL/CVertexBuffer.h"
 #include "Core/OpenGL/CDynamicVertexBuffer.h"
 #include "Core/OpenGL/CIndexBuffer.h"
-#include "Core/Resource/model/CModel.h"
+#include "Core/Resource/Model/CModel.h"
 #include "Core/Resource/CLight.h"
 
 /**

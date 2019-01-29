@@ -1,5 +1,5 @@
 #include "CPropertyNameGenerator.h"
-#include "IUIRelay.h"
+#include "Core/IUIRelay.h"
 #include "Core/Resource/Script/CGameTemplate.h"
 #include "Core/Resource/Script/NPropertyMap.h"
 #include <Common/Hash/CCRC32.h>

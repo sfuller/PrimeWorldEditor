@@ -23,7 +23,7 @@
 #include "CVectorProperty.h"
 
 /** TPropertyRef: Embeds a reference to a property on a specific object */
-template<class PropertyClass, typename ValueType = PropertyClass::ValueType>
+template<class PropertyClass, typename ValueType = typename PropertyClass::ValueType>
 class TPropertyRef
 {
     /** Property data being referenced */
@@ -93,20 +93,22 @@ typedef TPropertyRef<CStructProperty>       CStructRef;
 typedef TPropertyRef<CArrayProperty>        CArrayRef;
 
 /** Special version for enums */
+#undef BASE
+#define BASE TPropertyRef<CEnumProperty, ValueType>
 template<typename ValueType>
-class TEnumRef : public TPropertyRef<CEnumProperty, ValueType>
+class TEnumRef : public BASE
 {
 public:
     TEnumRef()
-        : TPropertyRef()
+        : BASE()
     {}
 
     TEnumRef(void* pInData, IProperty* pInProperty)
-        : TPropertyRef(pInData, pInProperty)
+        : BASE(pInData, pInProperty)
     {}
 
     TEnumRef(void* pInData, CEnumProperty* pInProperty)
-        : TPropertyRef(pInData, pInProperty)
+        : BASE(pInData, pInProperty)
     {}
 };
 

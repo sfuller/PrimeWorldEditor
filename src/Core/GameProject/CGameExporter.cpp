@@ -198,16 +198,16 @@ bool CGameExporter::ExtractDiscData()
         if (IsWii)
         {
             // Extract crypto files
-            if (!pDataPartition->extractCryptoFiles(*AbsDiscDir.ToUTF16(), Context))
+            if (!pDataPartition->extractCryptoFiles(*AbsDiscDir, Context))
                 return false;
 
             // Extract disc header files
-            if (!mpDisc->extractDiscHeaderFiles(*AbsDiscDir.ToUTF16(), Context))
+            if (!mpDisc->extractDiscHeaderFiles(*AbsDiscDir, Context))
                 return false;
         }
 
         // Extract system files
-        if (!pDataPartition->extractSysFiles(*AbsDiscDir.ToUTF16(), Context))
+        if (!pDataPartition->extractSysFiles(*AbsDiscDir, Context))
             return false;
 
         return true;
@@ -226,7 +226,7 @@ bool CGameExporter::ExtractDiscNodeRecursive(const nod::Node *pkNode, const TStr
         if (Iter->getKind() == nod::Node::Kind::File)
         {
             TString FilePath = rkDir + Iter->getName().data();
-            bool Success = Iter->extractToDirectory(*rkDir.ToUTF16(), rkContext);
+            bool Success = Iter->extractToDirectory(*rkDir, rkContext);
             if (!Success) return false;
 
             if (FilePath.GetFileExtension().CaseInsensitiveCompare("pak"))

@@ -1,6 +1,7 @@
 #include "CAnimation.h"
 #include <Common/Math/CTransform4f.h>
 #include <Common/Math/MathUtil.h>
+#include <cfloat>
 
 CAnimation::CAnimation(CResourceEntry *pEntry /*= 0*/)
     : CResource(pEntry)

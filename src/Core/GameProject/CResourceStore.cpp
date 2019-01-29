@@ -541,20 +541,20 @@ void CResourceStore::ImportNamesFromPakContentsTxt(const TString& rkTxtPath, boo
     // 2. avoids extra redundant moves (since there are redundant entries in the file)
     // todo: move to CAssetNameMap?
     std::map<CResourceEntry*, TString> PathMap;
-    FILE *pContentsFile;
-    fopen_s(&pContentsFile, *rkTxtPath, "r");
 
-    if (!pContentsFile)
+    std::ifstream ContentsFile(*rkTxtPath);
+
+    if (!ContentsFile.good())
     {
         errorf("Failed to open .contents.txt file: %s", *rkTxtPath);
         return;
     }
 
-    while (!feof(pContentsFile))
+    while (!ContentsFile.eof())
     {
         // Get new line, parse to extract the ID/path
         char LineBuffer[512];
-        fgets(LineBuffer, 512, pContentsFile);
+        ContentsFile.read(LineBuffer, 512);
 
         TString Line(LineBuffer);
         if (Line.IsEmpty()) break;
@@ -590,7 +590,6 @@ void CResourceStore::ImportNamesFromPakContentsTxt(const TString& rkTxtPath, boo
         }
     }
 
-    fclose(pContentsFile);
 
     // Assign names
     for (auto Iter = PathMap.begin(); Iter != PathMap.end(); Iter++)

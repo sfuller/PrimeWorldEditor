@@ -19,6 +19,11 @@ void OpenContainingFolder(const QString& rkPath)
     QStringList Args;
     Args << "/select," << QDir::toNativeSeparators(rkPath);
     QProcess::startDetached("explorer", Args);
+#elif __APPLE__
+    // NOTE: "APPLE" could also refer to iPhone, but I don't think iPhone will ever be supported by PWE :)
+    QStringList Args;
+    Args << "--reveal" << QDir::toNativeSeparators(rkPath);
+    QProcess::startDetached("open", Args);
 #else
 #error OpenContainingFolder() not implemented!
 #endif

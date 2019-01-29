@@ -1,5 +1,5 @@
 #include "CGameProject.h"
-#include "IUIRelay.h"
+#include "Core/IUIRelay.h"
 #include "Core/Resource/Script/CGameTemplate.h"
 #include <Common/Serialization/XML.h>
 #include <nod/nod.hpp>
@@ -83,20 +83,20 @@ bool CGameProject::BuildISO(const TString& rkIsoPath, IProgressNotifier *pProgre
 
     auto ProgressCallback = [&](float ProgressPercent, const nod::SystemStringView& rkInfoString, size_t)
     {
-        pProgress->Report((int) (ProgressPercent * 10000), 10000, TWideString(rkInfoString.data()).ToUTF8());
+        pProgress->Report((int) (ProgressPercent * 10000), 10000, TString(rkInfoString.data()));
     };
 
     pProgress->SetTask(0, "Building " + rkIsoPath.GetFileName());
-    TWideString DiscRoot = DiscDir(false).ToUTF16();
+    TString DiscRoot = DiscDir(false);
 
     if (!IsWiiBuild())
     {
-        nod::DiscBuilderGCN Builder(*rkIsoPath.ToUTF16(), ProgressCallback);
+        nod::DiscBuilderGCN Builder(*rkIsoPath, ProgressCallback);
         return Builder.buildFromDirectory(*DiscRoot) == nod::EBuildResult::Success;
     }
     else
     {
-        nod::DiscBuilderWii Builder(*rkIsoPath.ToUTF16(), IsTrilogy(), ProgressCallback);
+        nod::DiscBuilderWii Builder(*rkIsoPath, IsTrilogy(), ProgressCallback);
         return Builder.buildFromDirectory(*DiscRoot) == nod::EBuildResult::Success;
     }
 }
@@ -109,14 +109,14 @@ bool CGameProject::MergeISO(const TString& rkIsoPath, nod::DiscWii *pOriginalIso
 
     auto ProgressCallback = [&](float ProgressPercent, const nod::SystemStringView& rkInfoString, size_t)
     {
-        pProgress->Report((int) (ProgressPercent * 10000), 10000, TWideString(rkInfoString.data()).ToUTF8());
+        pProgress->Report((int) (ProgressPercent * 10000), 10000, rkInfoString.data());
     };
 
     pProgress->SetTask(0, "Building " + rkIsoPath.GetFileName());
 
-    TWideString DiscRoot = DiscFilesystemRoot(false).ToUTF16();
+    TString DiscRoot = DiscFilesystemRoot(false);
 
-    nod::DiscMergerWii Merger(*rkIsoPath.ToUTF16(), *pOriginalIso, IsTrilogy(), ProgressCallback);
+    nod::DiscMergerWii Merger(*rkIsoPath, *pOriginalIso, IsTrilogy(), ProgressCallback);
     return Merger.mergeFromDirectory(*DiscRoot) == nod::EBuildResult::Success;
 }
 

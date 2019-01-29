@@ -108,7 +108,11 @@ void CModelLoader::LoadAttribArrays(IInputStream& rModel)
 
 void CModelLoader::LoadSurfaceOffsets(IInputStream& rModel)
 {
-    mSurfaceCount = rModel.ReadLong();
+    int32 SurfaceCount = rModel.ReadLong();
+    if (SurfaceCount < 0) {
+        SurfaceCount = 0;
+    }
+    mSurfaceCount = SurfaceCount;
     mSurfaceOffsets.resize(mSurfaceCount);
 
     for (uint32 iSurf = 0; iSurf < mSurfaceCount; iSurf++)

@@ -379,28 +379,28 @@ CMaterial* CMaterialLoader::ReadCorruptionMaterial()
 
                 switch (pPass->mAnimMode)
                 {
-                case 3: // Rotation
-                case 7: // ???
+                case EUVAnimMode::UVRotation: // 3
+                case EUVAnimMode::ConvolutedModeA: // 7
                     pPass->mAnimParams[0] = mpFile->ReadFloat();
                     pPass->mAnimParams[1] = mpFile->ReadFloat();
                     break;
-                case 2: // UV Scroll
-                case 4: // U Scroll
-                case 5: // V Scroll
+                case EUVAnimMode::UVScroll:  // 2
+                case EUVAnimMode::HFilmstrip:  // 4
+                case EUVAnimMode::VFilmstrip:  // 5
                     pPass->mAnimParams[0] = mpFile->ReadFloat();
                     pPass->mAnimParams[1] = mpFile->ReadFloat();
                     pPass->mAnimParams[2] = mpFile->ReadFloat();
                     pPass->mAnimParams[3] = mpFile->ReadFloat();
                     break;
-                case 0: // Inverse ModelView Matrix
-                case 1: // Inverse ModelView Matrix Translated
-                case 6: // Model Matrix
-                case 10: // Yet-to-be-named
+                case EUVAnimMode::InverseMV: // 0: Inverse ModelView Matrix
+                case EUVAnimMode::InverseMVTranslated: // 1: Inverse ModelView Matrix Translated
+                case EUVAnimMode::ModelMatrix:  // 6
+                case EUVAnimMode::SimpleMode:  // 10: Yet-to-be-named
                     break;
 
                 // Unknown/unsupported animation type
-                case 8:
-                case 11:
+                case EUVAnimMode::ConvolutedModeB: // 8
+                case EUVAnimMode::Unknown_0xB:
                     break;
                 default:
                     errorf("%s [0x%X]: Unsupported animation mode encountered: %d", *mpFile->GetSourceString(), mpFile->Tell() - 8, pPass->mAnimMode);

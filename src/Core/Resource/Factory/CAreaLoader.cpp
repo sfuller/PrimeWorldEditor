@@ -9,6 +9,7 @@
 #include <Common/CFourCC.h>
 
 #include <iostream>
+#include <cfloat>
 
 CAreaLoader::CAreaLoader()
     : mpMREA(nullptr)
@@ -151,7 +152,7 @@ void CAreaLoader::ReadSCLYPrime()
         CFourCC SCGN = mpMREA->ReadFourCC();
 
         if (SCGN != FOURCC('SCGN'))
-            errorf("%s [0x%X]: Invalid SCGN magic: %s", *mpMREA->GetSourceString(), mpMREA->Tell() - 4, SCGN.ToString());
+            errorf("%s [0x%X]: Invalid SCGN magic: %s", *mpMREA->GetSourceString(), mpMREA->Tell() - 4, *SCGN.ToString());
 
         else
         {

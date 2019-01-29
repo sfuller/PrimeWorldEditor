@@ -18,6 +18,7 @@
 #include <QMenu>
 #include <QMessageBox>
 #include <QtConcurrent/QtConcurrentRun>
+#include <QButtonGroup>
 
 CResourceBrowser::CResourceBrowser(QWidget *pParent)
     : QWidget(pParent)
