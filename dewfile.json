@@ -1,53 +1,60 @@
 {
-    "dependencies": 
-    [
+    "dependencies": [
         {
             "name": "zlib",
+            "url": "https://github.com/madler/zlib",
             "type": "git",
-            "url":  "https://github.com/madler/zlib",
-            "head": "master"
+            "head": "master",
+            "ref": "cacf7f1d4e3d44d871b605da3b647f07d718623f"
         },
         {
             "name": "assimp",
+            "url": "https://github.com/assimp/assimp",
             "type": "git",
-            "url":  "https://github.com/assimp/assimp",
-            "head": "master"
+            "head": "master",
+            "ref": "bca41ceba5a76936807ea4d23d14a98444ed89b0"
         },
         {
             "name": "nod",
+            "url": "https://github.com/sfuller/nod",
             "type": "git",
-            "url":  "https://github.com/sfuller/nod",
-            "head": "cmake"
+            "head": "cmake",
+            "ref": "f1c76a475d1224deb929c4e8f8f111cebc283cc0"
         },
         {
             "name": "CodeGen",
+            "url": "https://github.com/sfuller/CodeGen",
             "type": "git",
-            "url":  "https://github.com/sfuller/CodeGen",
-            "head": "cmake"
+            "head": "cmake",
+            "ref": "1ff1bbf1d6ce5a8c457a0f00a6eb56641904bd7f"
         },
         {
             "name": "LibCommon",
+            "url": "https://github.com/sfuller/LibCommon",
             "type": "git",
-            "url":  "https://github.com/sfuller/LibCommon",
-            "head": "cmake"
+            "head": "cmake",
+            "ref": "751e42358c85e3d9045077d1ec0e3111cc66659f"
         },
         {
             "name": "lzo",
+            "url": "https://github.com/nemequ/lzo",
             "type": "git",
-            "url":  "https://github.com/nemequ/lzo",
-            "head": "master"
+            "head": "master",
+            "ref": "0083878c235a89ef96a009d1ff0b500f3a364e4b"
         },
         {
             "name": "lzokay",
+            "url": "https://github.com/sfuller/lzokay",
             "type": "git",
-            "url":  "https://github.com/sfuller/lzokay",
-            "head": "cmake"
+            "head": "cmake",
+            "ref": "87467048df10e72540a5abcac9dd5c0c4df3a712"
         },
         {
             "name": "tinyxml2",
+            "url": "https://github.com/leethomason/tinyxml2",
             "type": "git",
-            "url":  "https://github.com/leethomason/tinyxml2",
-            "head": "master"
+            "head": "master",
+            "ref": "c483646db00a6a9ac3a8e93f7c490aecb589979d"
         }
     ]
 }
