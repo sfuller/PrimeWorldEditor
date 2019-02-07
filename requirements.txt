@@ -1,0 +1,7 @@
+#
+# This is a pip requirements file.
+# https://pip.pypa.io/en/stable/user_guide/#requirements-files
+#
+
+dew-pacman>=0.7,<0.8
+
